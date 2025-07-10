@@ -1,4 +1,5 @@
-# Resident_Evil
-[ESP] Recreación de un pequeño escenario del videojuego Resident Evil (1996)
+![status](https://img.shields.io/badge/status-in_process-yellow)
+![Version](https://img.shields.io/badge/version-v1.0.0-blue)
+[![License](https://img.shields.io/badge/licencia-MIT-orange)](LICENSE)
 
-[ING] Recreation of a small scenario from the video game Resident Evil (1996)
+# ☣️ Resident Evil
