@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAnimation : MonoBehaviour
@@ -13,12 +11,12 @@ public class PlayerAnimation : MonoBehaviour
 
     private void Update()
     {
-        HandleAnimation();
     }
 
     private void HandleAnimation()
     {
         animator.SetFloat("Horizontal", Input.GetAxis("Horizontal"));
         animator.SetFloat("Vertical", Input.GetAxis("Vertical"));
+        animator.SetBool("Run", Input.GetKey(KeyCode.V));
     }
 }

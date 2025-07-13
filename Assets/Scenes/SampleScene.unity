@@ -462,6 +462,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8307827874975973650, guid: 467f09da1516a3f46b2faa9a9a4c5183, type: 3}
+      propertyPath: maxSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307827874975973650, guid: 467f09da1516a3f46b2faa9a9a4c5183, type: 3}
+      propertyPath: minSpeed
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8307827874975973650, guid: 467f09da1516a3f46b2faa9a9a4c5183, type: 3}
+      propertyPath: angularSpeed
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 9042142738629018072, guid: 467f09da1516a3f46b2faa9a9a4c5183, type: 3}
       propertyPath: m_Name
       value: Character
