@@ -1,14 +1,13 @@
 {
-    "name": "Tests.EditMode",
+    "name": "Scripts.Presentation",
     "rootNamespace": "",
     "references": [
-        "GUID:0acc523941302664db1f4e527237feb3",
         "GUID:aa973fd470487dc48a51ddd818336105",
+        "GUID:75469ad4d38634e559750d17036d5f7c",
+        "GUID:f1424ea3f395e524ba4f27cd23d95fc3",
         "GUID:9c715e671f4537c4daf6bd9553e9dfb8"
     ],
-    "includePlatforms": [
-        "Editor"
-    ],
+    "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,

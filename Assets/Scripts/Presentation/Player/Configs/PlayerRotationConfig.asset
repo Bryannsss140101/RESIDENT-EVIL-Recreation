@@ -11,6 +11,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: adf71e20224dcc642a25d223ac8b9e0f, type: 3}
   m_Name: PlayerRotationConfig
-  m_EditorClassIdentifier: Assembly-CSharp::RotationConfig
+  m_EditorClassIdentifier: Scripts.Presentation::RotationConfig
   walkTurnSpeed: 120
   runTurnSpeed: 80

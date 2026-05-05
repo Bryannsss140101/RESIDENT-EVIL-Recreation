@@ -1,8 +1,8 @@
 {
-    "name": "Scripts",
+    "name": "Scripts.Logic",
     "rootNamespace": "",
     "references": [
-        "GUID:75469ad4d38634e559750d17036d5f7c"
+        "GUID:9c715e671f4537c4daf6bd9553e9dfb8"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

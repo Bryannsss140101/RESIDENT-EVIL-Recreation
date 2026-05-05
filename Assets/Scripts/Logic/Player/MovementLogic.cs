@@ -7,14 +7,14 @@ public class MovementLogic
     public float WalkSpeedMin { get; private set; }
     public float RunSpeedMax { get; private set; }
 
-    public MovementLogic(MovementConfig movementConfig)
+    public MovementLogic(MovementData movementData)
     {
-        if (movementConfig == null)
-            throw new ArgumentNullException(nameof(movementConfig));
+        if (movementData == null)
+            throw new ArgumentNullException();
 
-        WalkSpeedMax = movementConfig.walkSpeedMax;
-        WalkSpeedMin = movementConfig.walkSpeedMin;
-        RunSpeedMax = movementConfig.runSpeedMax;
+        WalkSpeedMax = movementData.WalkSpeedMax;
+        WalkSpeedMin = movementData.WalkSpeedMin;
+        RunSpeedMax = movementData.RunSpeedMax;
     }
 
     public float GetSpeed(float vertical, bool isRunning)

@@ -13,7 +13,7 @@ public class MovementComponent : MonoBehaviour
 
     private void Start()
     {
-        movementLogic = new(movementConfig);
+        movementLogic = new(movementConfig.Mapper());
 
         inputComponent = GetComponent<InputComponent>();
         controller = GetComponent<CharacterController>();

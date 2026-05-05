@@ -12,21 +12,19 @@ public class RotationComponent : MonoBehaviour
 
     private void Awake()
     {
-        rotationLogic = new(rotationConfig);
+        rotationLogic = new(rotationConfig.Mapper());
 
         inputComponent = GetComponent<InputComponent>();
     }
 
     private void Update()
     {
-        HandleRotation();
+        HandleRotation(inputComponent.Move.x, inputComponent.IsRunning);
     }
 
-    private void HandleRotation()
+    private void HandleRotation(float horizontal, bool isRunning)
     {
-        var horizontal = inputComponent.Move.x;
-
-        var targetTurnSpeed = rotationLogic.GetTurnSpeed(inputComponent.IsRunning);
+        var targetTurnSpeed = rotationLogic.GetTurnSpeed(isRunning);
 
         currentTurnSpeed = Mathf.Lerp(currentTurnSpeed, targetTurnSpeed, 5f * Time.deltaTime);
 

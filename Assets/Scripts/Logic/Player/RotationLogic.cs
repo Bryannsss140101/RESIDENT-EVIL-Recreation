@@ -1,12 +1,17 @@
+using System;
+
 public class RotationLogic
 {
     public float WalkTurnSpeed { get; private set; }
     public float RunTurnSpeed { get; private set; }
 
-    public RotationLogic(RotationConfig rotationConfig)
+    public RotationLogic(RotationData rotationData)
     {
-        WalkTurnSpeed = rotationConfig.walkTurnSpeed;
-        RunTurnSpeed = rotationConfig.runTurnSpeed;
+        if (rotationData == null)
+            throw new ArgumentNullException();
+
+        WalkTurnSpeed = rotationData.WalkTurnSpeed;
+        RunTurnSpeed = rotationData.RunTurnSpeed;
     }
 
     public float GetTurnSpeed(bool isRunning)

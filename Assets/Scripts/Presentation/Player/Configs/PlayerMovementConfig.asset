@@ -11,9 +11,7 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1ec97755eec682f4a9c3a614e2bbc535, type: 3}
   m_Name: PlayerMovementConfig
-  m_EditorClassIdentifier: Assembly-CSharp::MovementConfig
-  walkSpeed: 3
+  m_EditorClassIdentifier: Scripts.Presentation::MovementConfig
+  walkSpeedMax: 3
   walkSpeedMin: 1.5
-  runSpeed: 6
-  walkTurnSpeed: 120
-  runTurnSpeed: 80
+  runSpeedMax: 6

@@ -1,25 +1,26 @@
 using System;
 using NUnit.Framework;
-using UnityEngine;
 
 public class MovementLogicTest
 {
-    private MovementConfig movementConfig;
+    private MovementData movementData;
     private MovementLogic movementLogic;
 
     [SetUp]
     public void Setup()
     {
-        movementConfig = ScriptableObject.CreateInstance<MovementConfig>();
-        movementConfig.walkSpeedMax = 3f;
-        movementConfig.walkSpeedMin = 1.5f;
-        movementConfig.runSpeedMax = 6f;
+        movementData = new MovementData()
+        {
+            WalkSpeedMax = 3f,
+            WalkSpeedMin = 1.5f,
+            RunSpeedMax = 6f
+        };
 
-        movementLogic = new MovementLogic(movementConfig);
+        movementLogic = new MovementLogic(movementData);
     }
 
     [Test]
-    public void Constructor_InvalidConfig_ThrowsArgumentNullException()
+    public void Constructor_InvalidData_ThrowsArgumentNullException()
     {
         Assert.Throws<ArgumentNullException>(() =>
         {
@@ -28,13 +29,13 @@ public class MovementLogicTest
     }
 
     [Test]
-    public void Constructor_ValidConfig_SetsValuesCorrectly()
+    public void Constructor_ValidData_SetsValuesCorrectly()
     {
-        var logic = new MovementLogic(movementConfig);
+        var logic = new MovementLogic(movementData);
 
-        Assert.AreEqual(movementConfig.walkSpeedMax, logic.WalkSpeedMax);
-        Assert.AreEqual(movementConfig.walkSpeedMin, logic.WalkSpeedMin);
-        Assert.AreEqual(movementConfig.runSpeedMax, logic.RunSpeedMax);
+        Assert.AreEqual(movementData.WalkSpeedMax, logic.WalkSpeedMax);
+        Assert.AreEqual(movementData.WalkSpeedMin, logic.WalkSpeedMin);
+        Assert.AreEqual(movementData.RunSpeedMax, logic.RunSpeedMax);
     }
 
     [Test]
@@ -50,7 +51,7 @@ public class MovementLogicTest
     {
         var speed = movementLogic.GetSpeed(1f, false);
 
-        Assert.AreEqual(movementConfig.walkSpeedMax, speed);
+        Assert.AreEqual(movementData.WalkSpeedMax, speed);
     }
 
     [Test]
@@ -58,7 +59,7 @@ public class MovementLogicTest
     {
         var speed = movementLogic.GetSpeed(-1f, false);
 
-        Assert.AreEqual(movementConfig.walkSpeedMin, speed);
+        Assert.AreEqual(movementData.WalkSpeedMin, speed);
     }
 
     [Test]
@@ -66,7 +67,7 @@ public class MovementLogicTest
     {
         var speed = movementLogic.GetSpeed(1f, true);
 
-        Assert.AreEqual(movementConfig.runSpeedMax, speed);
+        Assert.AreEqual(movementData.RunSpeedMax, speed);
     }
 
     [Test]
@@ -74,6 +75,6 @@ public class MovementLogicTest
     {
         var speed = movementLogic.GetSpeed(-1f, true);
 
-        Assert.AreEqual(movementConfig.walkSpeedMin, speed);
+        Assert.AreEqual(movementData.WalkSpeedMin, speed);
     }
 }
