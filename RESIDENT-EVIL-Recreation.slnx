@@ -1,3 +1,8 @@
 ﻿<Solution>
-  <Project Path="Assembly-CSharp.csproj" />
+  <Project Path="Scripts.Presentation.csproj" />
+  <Project Path="Scripts.Logic.csproj" />
+  <Project Path="Scripts.Shared.csproj" />
+  <Project Path="Tests.EditMode.csproj" />
+  <Project Path="Scripts.Data.csproj" />
+  <Project Path="Tests.PlayMode.csproj" />
 </Solution>
