@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: PlayerRotationConfig
   m_EditorClassIdentifier: Scripts.Presentation::RotationConfig
   walkTurnSpeed: 100
-  runTurnSpeed: 80
+  runTurnSpeed: 150
