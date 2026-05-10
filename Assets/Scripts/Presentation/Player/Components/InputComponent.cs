@@ -7,13 +7,13 @@ public class InputComponent : MonoBehaviour
     [SerializeField] private InputActionReference moveAction;
     [SerializeField] private InputActionReference runAction;
 
-    public Vector2 Move { get; set; }
+    public Vector2 Direction { get; set; }
     public bool IsRunning { get; set; }
     public bool CanProcessInput { get; set; } = true;
 
     public void ResetInput()
     {
-        Move = Vector2.zero;
+        Direction = Vector2.zero;
         IsRunning = false;
     }
 
@@ -35,7 +35,7 @@ public class InputComponent : MonoBehaviour
             return;
 
         if (moveAction != null)
-            Move = moveAction.action.ReadValue<Vector2>();
+            Direction = moveAction.action.ReadValue<Vector2>();
 
         if (runAction != null)
             IsRunning = runAction.action.ReadValue<float>() > 0.5f;
