@@ -8,8 +8,6 @@ public class RotationComponent : MonoBehaviour
 
     private InputComponent inputComponent;
 
-    private float currentTurnSpeed;
-
     private void Awake()
     {
         rotationLogic = new(rotationConfig.Mapper());
@@ -19,16 +17,23 @@ public class RotationComponent : MonoBehaviour
 
     private void Update()
     {
-        HandleRotation(inputComponent.Move.x, inputComponent.IsRunning);
+        HandleRotation();
     }
 
-    private void HandleRotation(float horizontal, bool isRunning)
+    private void HandleRotation()
     {
-        var targetTurnSpeed = rotationLogic.GetTurnSpeed(isRunning);
+        var direction = inputComponent.Direction;
 
-        currentTurnSpeed = Mathf.Lerp(currentTurnSpeed, targetTurnSpeed, 5f * Time.deltaTime);
+        if (direction.y < 0f)
+            return;
 
-        var rotation = horizontal * currentTurnSpeed * Time.deltaTime;
+        var useWalkTurnSpeed = direction == Vector2.zero && inputComponent.IsRunning;
+
+        var turnSpeed = rotationLogic.GetTurnSpeed(
+            !useWalkTurnSpeed && inputComponent.IsRunning
+        );
+
+        var rotation = direction.x * turnSpeed * Time.deltaTime;
 
         transform.Rotate(0f, rotation, 0f);
     }
