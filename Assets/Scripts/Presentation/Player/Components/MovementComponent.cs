@@ -10,7 +10,7 @@ public class MovementComponent : MonoBehaviour
     private CharacterController controller;
 
     public Vector3 Direction =>
-        transform.forward * inputComponent.Direction.y;
+        transform.forward * Mathf.Round(inputComponent.Direction.y);
 
     private void Start()
     {

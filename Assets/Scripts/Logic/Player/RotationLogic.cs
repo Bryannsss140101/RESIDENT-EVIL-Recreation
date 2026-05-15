@@ -1,4 +1,5 @@
 using System;
+using UnityEngine;
 
 public class RotationLogic
 {
@@ -14,8 +15,14 @@ public class RotationLogic
         RunTurnSpeed = rotationData.RunTurnSpeed;
     }
 
-    public float GetTurnSpeed(bool isRunning)
+    public float GetTurnSpeed(float vertical, bool isRunning)
     {
+        if (Mathf.Approximately(vertical, 0f))
+            return 0f;
+
+        if (vertical < 0f)
+            return WalkTurnSpeed;
+
         return isRunning ? RunTurnSpeed : WalkTurnSpeed;
     }
 }

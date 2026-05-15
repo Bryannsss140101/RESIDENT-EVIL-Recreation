@@ -37,9 +37,25 @@ public class RotationLogicTest
     }
 
     [Test]
+    public void GetTurnSpeed_NoInput_ReturnZero()
+    {
+        var speed = rotationLogic.GetTurnSpeed(0f, false);
+
+        Assert.AreEqual(0f, speed);
+    }
+
+    [Test]
+    public void GetTurnSpeed_WalkingBackward_ReturnWalkTurnSpeed()
+    {
+        var speed = rotationLogic.GetTurnSpeed(-1f, false);
+
+        Assert.AreEqual(rotationData.WalkTurnSpeed, speed);
+    }
+
+    [Test]
     public void GetTurnSpeed_Walking_ReturnWalkTurnSpeed()
     {
-        var speed = rotationLogic.GetTurnSpeed(false);
+        var speed = rotationLogic.GetTurnSpeed(1f, false);
 
         Assert.AreEqual(rotationData.WalkTurnSpeed, speed);
     }
@@ -47,7 +63,7 @@ public class RotationLogicTest
     [Test]
     public void GetTurnSpeed_Running_ReturnRunTurnSpeed()
     {
-        var speed = rotationLogic.GetTurnSpeed(true);
+        var speed = rotationLogic.GetTurnSpeed(1f, true);
 
         Assert.AreEqual(rotationData.RunTurnSpeed, speed);
     }
