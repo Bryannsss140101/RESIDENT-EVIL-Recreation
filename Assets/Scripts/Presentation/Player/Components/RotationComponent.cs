@@ -8,6 +8,9 @@ public class RotationComponent : MonoBehaviour
 
     private InputComponent inputComponent;
 
+    public Vector3 Direction =>
+        transform.up * Mathf.Round(inputComponent.Direction.x);
+
     private void Awake()
     {
         rotationLogic = new(rotationConfig.Mapper());
@@ -22,19 +25,9 @@ public class RotationComponent : MonoBehaviour
 
     private void HandleRotation()
     {
-        var direction = inputComponent.Direction;
+        var targetTurnSpeed = rotationLogic.GetTurnSpeed(
+            inputComponent.Direction.y, inputComponent.IsRunning);
 
-        if (direction.y < 0f)
-            return;
-
-        var useWalkTurnSpeed = direction == Vector2.zero && inputComponent.IsRunning;
-
-        var turnSpeed = rotationLogic.GetTurnSpeed(
-            !useWalkTurnSpeed && inputComponent.IsRunning
-        );
-
-        var rotation = direction.x * turnSpeed * Time.deltaTime;
-
-        transform.Rotate(0f, rotation, 0f);
+        transform.Rotate(targetTurnSpeed * Time.deltaTime * Direction);
     }
 }

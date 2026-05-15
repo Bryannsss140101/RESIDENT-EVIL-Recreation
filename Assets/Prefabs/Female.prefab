@@ -770,7 +770,7 @@ GameObject:
   - component: {fileID: 1424210743770838204}
   - component: {fileID: 8304555886756036358}
   - component: {fileID: 5177296650608417707}
-  - component: {fileID: 7826443365929420160}
+  - component: {fileID: 3588896987937627278}
   m_Layer: 0
   m_Name: Female
   m_TagString: Untagged
@@ -912,7 +912,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Scripts.Presentation::RotationComponent
   rotationConfig: {fileID: 11400000, guid: e1d7fb0b68622d049859dec551ee5bad, type: 2}
---- !u!114 &7826443365929420160
+--- !u!114 &3588896987937627278
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
