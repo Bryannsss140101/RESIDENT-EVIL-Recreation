@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(Animator), typeof(InputComponent))]
@@ -23,7 +24,7 @@ public class AnimationComponent : MonoBehaviour
     private void HandleAnimation()
     {
         MovementAnimation();
-        //RotationAnimation();
+        RotationAnimation();
     }
 
     private void MovementAnimation()
@@ -37,10 +38,8 @@ public class AnimationComponent : MonoBehaviour
     {
         var vertical = QuantizeDirection(inputComponent.Direction).x;
 
-        if (inputComponent.Direction.y < 0f)
-            return;
-
-        animator.SetFloat(directionX, vertical);
+        if (inputComponent.Direction.y == 0f)
+            animator.SetFloat(directionX, Mathf.Abs(vertical));
     }
 
     private Vector2 QuantizeDirection(Vector2 input)
@@ -55,36 +54,4 @@ public class AnimationComponent : MonoBehaviour
             input.y != 0f ? Mathf.Sign(input.y) * value : 0f
         );
     }
-
-    /*private void MovementAnimation()
-    {
-        var direction = QuantizeDirection(inputComponent.Direction);
-
-        animator.SetFloat(directionY, direction.y);
-    }
-
-    private void RotationAnimation()
-    {
-        var direction = QuantizeDirection(inputComponent.Direction);
-
-        var horizontal =
-                direction.y == 0f && inputComponent.IsRunning
-                ? 0.5f
-                : Mathf.Abs(direction.x);
-
-        animator.SetFloat(directionX, horizontal);
-    }
-
-    private Vector2 QuantizeDirection(Vector2 input)
-    {
-        if (input == Vector2.zero)
-            return Vector2.zero;
-
-        float value = inputComponent.IsRunning ? 1f : 0.5f;
-
-        return new Vector2(
-            input.x != 0f ? Mathf.Sign(input.x) * value : 0f,
-            input.y != 0f ? Mathf.Sign(input.y) * value : 0f
-        );
-    }*/
 }

@@ -37,11 +37,11 @@ public class RotationLogicTest
     }
 
     [Test]
-    public void GetTurnSpeed_NoInput_ReturnZero()
+    public void GetTurnSpeed_NoInput_ReturnWalkTurnSpeed()
     {
         var speed = rotationLogic.GetTurnSpeed(0f, false);
 
-        Assert.AreEqual(0f, speed);
+        Assert.AreEqual(rotationData.WalkTurnSpeed, speed);
     }
 
     [Test]

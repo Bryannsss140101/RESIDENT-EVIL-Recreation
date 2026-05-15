@@ -18,7 +18,7 @@ public class RotationLogic
     public float GetTurnSpeed(float vertical, bool isRunning)
     {
         if (Mathf.Approximately(vertical, 0f))
-            return 0f;
+            return WalkTurnSpeed;
 
         if (vertical < 0f)
             return WalkTurnSpeed;
